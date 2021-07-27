@@ -1,6 +1,6 @@
 {
   "name": "@sudoku-studio/cryptominisat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WASM-compiled version of CryptoMiniSat",
   "main": "dist/cryptominisat.js",
   "types": "dist/cryptominisat.d.ts",

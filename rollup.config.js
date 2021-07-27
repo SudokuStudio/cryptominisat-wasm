@@ -13,7 +13,7 @@ export default {
         copy({
             targets: [
                 {
-                    src: 'cryptominisat/build/cryptominisat5_simple.js',
+                    src: 'cryptominisat/build/cryptominisat5_simple.*',
                     dest: 'dist/',
                 },
             ],
