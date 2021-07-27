@@ -6,14 +6,15 @@ export default {
     output: {
         sourcemap: true,
         format: 'es',
-        dir: 'lib'
+        dir: 'dist'
     },
+    external: [ './cryptominisat5_simple' ],
     plugins: [
         copy({
             targets: [
                 {
-                    src: 'src/cryptominisat5_simple.wasm',
-                    dest: 'lib/',
+                    src: 'cryptominisat/build/cryptominisat5_simple.js',
+                    dest: 'dist/',
                 },
             ],
         }),

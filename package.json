@@ -1,17 +1,20 @@
 {
-  "name": "cryptominisat",
+  "name": "@sudoku-studio/cryptominisat",
   "version": "0.0.0",
-  "description": "",
-  "main": "lib/cryptominisat.js",
-  "types": "lib/cryptominisat.d.ts",
+  "description": "WASM-compiled version of CryptoMiniSat",
+  "main": "dist/cryptominisat.js",
+  "types": "dist/cryptominisat.d.ts",
+  "files": [ "dits/**/*" ],
+  "license": "MIT",
   "scripts": {
-    "clean": "rm -r lib",
-    "build": "rollup -c"
+    "clean": "rm -rf dist cryptominisat",
+    "build": "./build.bash && rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.3",
     "rollup": "^2.53.3",
     "rollup-plugin-copy": "^3.4.0",
+    "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   }
 }

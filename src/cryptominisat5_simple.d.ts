@@ -1,2 +1,1 @@
-declare const Module: any;
-export default Module;
+export default function loadModule(): Promise<any>;

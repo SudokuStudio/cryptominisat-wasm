@@ -4,10 +4,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "ES2017",
-    "lib": [
-      "DOM", "ES2017"
-    ],
-    "outDir": "lib",
+    "outDir": "dist",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
