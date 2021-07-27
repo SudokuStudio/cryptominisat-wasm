@@ -1,10 +1,10 @@
 {
   "name": "@sudoku-studio/cryptominisat",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WASM-compiled version of CryptoMiniSat",
   "main": "dist/cryptominisat.js",
   "types": "dist/cryptominisat.d.ts",
-  "files": [ "dits/**/*" ],
+  "files": [ "dist/**/*" ],
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist cryptominisat",
