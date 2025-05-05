@@ -1,0 +1,46 @@
+export declare type c_Lit = number;
+export declare const LBool: {
+    readonly TRUE: 0;
+    readonly FALSE: 1;
+    readonly UNDEF: 2;
+};
+export declare type lbool = (typeof LBool)[keyof typeof LBool];
+export declare type slice_Lit = Uint32Array;
+export declare type slice_lbool = Uint8Array;
+export declare type SATSolverPtr = number;
+declare type RawModule = {
+    HEAPU8: Uint8Array;
+    HEAPU32: Uint32Array;
+    ccall(ident: string, returnType?: null | string, argTypes?: string[], args?: any[]): any;
+    _malloc(bytes: number): number;
+    _free(offset: number): void;
+};
+export declare type Module = RawModule & ReturnType<typeof bind>;
+export declare function load(): Promise<Module>;
+declare function bind(Module: RawModule): {
+    readonly cmsat_new: () => SATSolverPtr;
+    readonly cmsat_free: (self: SATSolverPtr) => void;
+    readonly cmsat_nvars: (self: SATSolverPtr) => number;
+    readonly cmsat_add_clause: (self: SATSolverPtr, lits: c_Lit[]) => boolean;
+    readonly cmsat_add_xor_clause: (self: SATSolverPtr, lits: c_Lit[], rhs: boolean) => boolean;
+    readonly cmsat_new_vars: (self: SATSolverPtr, n: number) => number;
+    readonly cmsat_solve: (self: SATSolverPtr) => lbool;
+    readonly cmsat_solve_with_assumptions: (self: SATSolverPtr, assumptions: c_Lit[]) => lbool;
+    readonly cmsat_get_model: (self: SATSolverPtr) => slice_lbool;
+    readonly cmsat_get_conflict: (self: SATSolverPtr) => slice_Lit;
+    readonly cmsat_print_stats: (self: SATSolverPtr) => void;
+    readonly cmsat_set_num_threads: (self: SATSolverPtr, n: number) => void;
+    readonly cmsat_set_verbosity: (self: SATSolverPtr, n: number) => void;
+    readonly cmsat_set_default_polarity: (self: SATSolverPtr, polarity: number) => void;
+    readonly cmsat_set_polarity_auto: (self: SATSolverPtr) => void;
+    readonly cmsat_set_no_simplify: (self: SATSolverPtr) => void;
+    readonly cmsat_set_no_simplify_at_startup: (self: SATSolverPtr) => void;
+    readonly cmsat_set_no_equivalent_lit_replacement: (self: SATSolverPtr) => void;
+    readonly cmsat_set_no_bva: (self: SATSolverPtr) => void;
+    readonly cmsat_set_no_bve: (self: SATSolverPtr) => void;
+    readonly cmsat_set_up_for_scalmc: (self: SATSolverPtr) => void;
+    readonly cmsat_set_yes_comphandler: (self: SATSolverPtr) => void;
+    readonly cmsat_simplify: (self: SATSolverPtr, assumptions?: c_Lit[]) => lbool;
+    readonly cmsat_set_max_time: (self: SATSolverPtr, max_time: number) => void;
+};
+export {};
