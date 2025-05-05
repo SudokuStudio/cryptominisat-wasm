@@ -1,11 +1,12 @@
 import loadWasm from './cryptominisat5_simple';
 
 export type c_Lit = number; // u32
-export const enum lbool { // u8
-    TRUE = 0,
-    FALSE = 1,
-    UNDEF = 2,
-}
+export const LBool = { // u8
+    TRUE: 0,
+    FALSE: 1,
+    UNDEF: 2,
+} as const;
+export type lbool = (typeof LBool)[keyof typeof LBool];
 
 export type slice_Lit = Uint32Array;
 export type slice_lbool = Uint8Array;
