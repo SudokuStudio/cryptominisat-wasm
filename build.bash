@@ -3,9 +3,9 @@ set -ex
 
 # Get cryptominisat
 if [ ! -d "cryptominisat" ]; then
-    wget -O cryptominisat.tar.gz https://github.com/msoos/cryptominisat/archive/refs/tags/5.11.12.tar.gz
+    wget -O cryptominisat.tar.gz https://github.com/msoos/cryptominisat/archive/refs/tags/5.11.3.tar.gz
     tar -xvzf cryptominisat.tar.gz
-    mv cryptominisat-5.11.12 cryptominisat
+    mv cryptominisat-5.11.3 cryptominisat
 fi
 pushd cryptominisat
 
